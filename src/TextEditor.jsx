@@ -8,7 +8,7 @@ function TextEditor() {
     const [output, setOutput] = useState('');
 
     const runCode = () => {
-        axios.post('http://localhost:3000/run-code', { code, language })
+        axios.post('https://text-editor-app-backend.onrender.com/run-code', { code, language })
             .then(res => setOutput(res.data.output || res.data.error))
             .catch(err => console.error(err));
     };
