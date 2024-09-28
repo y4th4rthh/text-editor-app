@@ -63,7 +63,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className='relative z-0 bg-gray-900 text-white min-h-screen'>   
+    <div className='relative z-0 bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen'>   
       <div className='contact overflow-x-hidden pt-14  py-7' id='contact'>
         <div className='z-10 w-full sm:w-[650px] m-auto p-8 rounded-2xl '>
           <p className='font-light text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500'>REACH OUT TO ME</p>
