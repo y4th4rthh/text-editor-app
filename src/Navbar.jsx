@@ -12,7 +12,8 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">"I Can Compile" ahh Editor</Link>
+         <Link to="/" className=" text-xl font-bold">  <p className=' flex gap-4 items-center'> <img  className='hidden sm:block w-6 h-6'  src="https://img.icons8.com/?size=200&id=Hev7FyjRoIfo&format=png&color=FFFFFF" />  "I Can Compile" ahh Editor </p>
+        </Link>
         
         {/* Mobile menu button */}
         <button onClick={toggleMenu} className="md:hidden">
