@@ -19,7 +19,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('https://text-editor-app-backend.onrender.com/api/login', { email, password });
+      const response = await axios.post('https://text-editor-app-backend.onrender.com/api/register', { email, password });
       console.log('Registration successful:', response.data);
       navigate('/login');
     } catch (error) {
