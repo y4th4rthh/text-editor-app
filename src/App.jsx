@@ -7,6 +7,7 @@ import TextEditor from './TextEditor';
 import RegisterPage from './RegisterPage';
 import Footer from './Footer';
 import LoginPage from './LoginPage';
+import ContactPage from './ContactPage';
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -29,6 +30,7 @@ const App = () => (
                 </PrivateRoute>
               } 
             />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
