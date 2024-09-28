@@ -13,7 +13,7 @@ const HomePage = () => (
     <div className="container mx-auto px-4 py-16">
       {/* Hero Section */}
       <div className="text-center mb-16">
-        <h1 className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="sm:text-5xl text-3xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           "I Can Compile" ahh Editor
         </h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -57,13 +57,13 @@ const HomePage = () => (
         <p className="text-xl mb-6">Join thousands of developers who trust our platform for their coding needs.</p>
         <Link 
           to="/register" 
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded transition duration-300 text-lg mr-4"
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg mr-4"
         >
           Sign Up Free
         </Link>
         <Link 
-          to="/editor" 
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded transition duration-300 text-lg"
+          to="/contact" 
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg"
         >
           Contact Us?
         </Link>
