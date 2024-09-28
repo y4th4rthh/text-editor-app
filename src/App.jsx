@@ -6,7 +6,6 @@ import HomePage from './HomePage';
 import TextEditor from './TextEditor';
 import RegisterPage from './RegisterPage';
 import Footer from './Footer';
-// import ContactPage from './ContactPage';
 import LoginPage from './LoginPage';
 
 const PrivateRoute = ({ children }) => {
@@ -31,7 +30,6 @@ const App = () => (
               } 
             />
             <Route path="/register" element={<RegisterPage />} />
-            {/* <Route path="/contact" element={<ContactPage />} /> */}
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
