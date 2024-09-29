@@ -28,7 +28,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden mt-4">
+        <div className="md:hidden flex  justify-evenly mt-4">
           <NavLinks isAuthenticated={isAuthenticated} logout={logout} mobile />
         </div>
       )}
