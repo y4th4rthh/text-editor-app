@@ -41,7 +41,7 @@ function TextEditor() {
             return (
                 <div className="w-full h-full bg-white">
                     <style>
-                     {`
+                        {`
                         /* Reset default styles */
                         #preview-content * {
                             margin: 0;
@@ -54,7 +54,7 @@ function TextEditor() {
                         }
                         `}
                     </style>
-                    <div className="p-4">
+                    <div id='preview-content' className="p-4">
                         <h1>CSS Preview</h1>
                         <p>This is a sample text to preview your CSS.</p>
                         <button className="btn">Sample Button</button>
@@ -123,13 +123,16 @@ function TextEditor() {
 
                     <div className="w-full lg:w-1/2 space-y-6">
                         {(language === 'html' || language === 'css') ? (
-                            <div className="bg-white rounded-lg overflow-hidden h-[500px]">
-                                {renderPreview()}
+                            <div>
+                                <h2 className="text-lg font-medium text-gray-200 mb-3">Output:</h2>
+                                <div className="bg-white rounded-lg overflow-hidden h-[450px]">
+                                    {renderPreview()}
+                                </div>
                             </div>
                         ) : (
                             <div>
                                 <h2 className="text-lg font-medium text-gray-200 mb-3">Output:</h2>
-                                <pre className="bg-gray-900 text-gray-300 p-4 rounded-lg w-full overflow-auto h-[500px] border border-gray-700">
+                                <pre className="bg-gray-900 text-gray-300 p-4 rounded-lg w-full overflow-auto h-[450px] border border-gray-700">
                                     {output || 'Run the code to see the output here.'}
                                 </pre>
                             </div>
