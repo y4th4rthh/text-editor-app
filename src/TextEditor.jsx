@@ -40,11 +40,30 @@ function TextEditor() {
         } else if (language === 'css') {
             return (
                 <div className="w-full h-full bg-white">
-                    <style>{preview}</style>
+                    <style>
+                     {`
+                        /* Reset default styles */
+                        #preview-content * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        /* Apply user's CSS only to the preview content */
+                        #preview-content {
+                            ${preview}
+                        }
+                        `}
+                    </style>
                     <div className="p-4">
                         <h1>CSS Preview</h1>
                         <p>This is a sample text to preview your CSS.</p>
                         <button className="btn">Sample Button</button>
+                        <div className="custom-class">A div with a custom class</div>
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2</li>
+                            <li>List item 3</li>
+                        </ul>
                     </div>
                 </div>
             );
