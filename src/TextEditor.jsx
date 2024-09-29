@@ -1,155 +1,77 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const prettier = require('prettier');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+import { useState } from 'react';
+import MonacoEditor from '@monaco-editor/react';
+import axios from 'axios';
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
+function CodeFormatter() {
+    const [code, setCode] = useState('// Write your code here');
+    const [language, setLanguage] = useState('javascript');
+    const [formattedCode, setFormattedCode] = useState('');
 
-// MongoDB connection (use environment variable for the URI)
-const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://yatharthpatel014:yatharth@cluster0.5uwjd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'TextEditor'
-});
+    const formatCode = () => {
+        axios.post('https://your-backend-url.onrender.com/format-code', { code, language })
+            .then(res => setFormattedCode(res.data.formattedCode))
+            .catch(err => console.error(err));
+    };
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-    console.log('Connected to MongoDB');
-});
+    return (
+        <div className='w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex justify-center items-center p-6'>
+            <div className="w-full max-w-6xl bg-gray-800 shadow-2xl rounded-xl p-8 space-y-8">
+                <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
+                    Code Formatter
+                </h1>
 
-// User model
-const Schema = mongoose.Schema;
-const UserSchema = new Schema({
-    email: String,
-    password: String,
-});
-const User = mongoose.model('user', UserSchema);
+                <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
+                    <div className="w-full lg:w-1/2">
+                        <MonacoEditor
+                            height="500px"
+                            language={language}
+                            theme="vs-dark"
+                            value={code}
+                            onChange={(value) => setCode(value)}
+                            className="w-full rounded-lg overflow-hidden shadow-lg border border-gray-700"
+                        />
+                    </div>
 
-// Registration endpoint
-app.post('/api/register', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
-    }
+                    <div className="w-full lg:w-1/2">
+                        <MonacoEditor
+                            height="500px"
+                            language={language}
+                            theme="vs-dark"
+                            value={formattedCode}
+                            options={{ readOnly: true }}
+                            className="w-full rounded-lg overflow-hidden shadow-lg border border-gray-700"
+                        />
+                    </div>
+                </div>
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+                <div className="flex justify-center space-x-4">
+                    <select
+                        className="bg-gray-700 border border-gray-600 rounded-md p-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                        onChange={(e) => setLanguage(e.target.value)}
+                        value={language}
+                    >
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="json">JSON</option>
+                        <option value="markdown">Markdown</option>
+                        <option value="yaml">YAML</option>
+                    </select>
 
-    const newUser = new User({
-      email,
-      password: hashedPassword,
-    });
-
-    await newUser.save();
-
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (error) {
-    console.error('Registration error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Login endpoint
-app.post('/api/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ error: 'Invalid credentials' });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ error: 'Invalid credentials' });
-    }
-
-    // TODO: Implement JWT token generation here
-    res.json({ message: 'Logged in successfully' });
-  } catch (error) {
-    console.error('Login error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Code formatting endpoint
-app.post('/format-code', async (req, res) => {
-    const { code, language } = req.body;
-
-    try {
-        let formattedCode;
-        let parser;
-
-        switch (language.toLowerCase()) {
-            case 'javascript':
-            case 'js':
-                parser = 'babel';
-                break;
-            case 'typescript':
-            case 'ts':
-                parser = 'typescript';
-                break;
-            case 'css':
-                parser = 'css';
-                break;
-            case 'html':
-                parser = 'html';
-                break;
-            case 'json':
-                parser = 'json';
-                break;
-            case 'markdown':
-            case 'md':
-                parser = 'markdown';
-                break;
-            case 'yaml':
-                parser = 'yaml';
-                break;
-            case 'python':
-            case 'py':
-                // For Python, we'll use a different approach
-                formattedCode = await formatPython(code);
-                return res.json({ formattedCode });
-            case 'java':
-            case 'c':
-            case 'cpp':
-                // For Java, C, and C++, we'll use a different approach
-                formattedCode = await formatCFamily(code, language);
-                return res.json({ formattedCode });
-            default:
-                return res.status(400).json({ error: 'Unsupported language' });
-        }
-
-        formattedCode = await prettier.format(code, { parser: parser });
-        res.json({ formattedCode });
-    } catch (error) {
-        console.error('Formatting error:', error);
-        res.status(500).json({ error: 'An error occurred during formatting' });
-    }
-});
-
-async function formatPython(code) {
-    // Here you would integrate with a Python formatter like Black
-    // For now, we'll just return the original code
-    return code;
+                    <button
+                        onClick={formatCode}
+                        className="bg-blue-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
+                    >
+                        Format Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-async function formatCFamily(code, language) {
-    // Here you would integrate with a formatter for C-family languages
-    // For now, we'll just return the original code
-    return code;
-}
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Backend server is running on port ${PORT}`);
-});
+export default CodeFormatter;
