@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MonacoEditor from '@monaco-editor/react';
 import axios from 'axios';
 
@@ -6,7 +6,7 @@ function TextEditor() {
     const [code, setCode] = useState('// Write your code here');
     const [language, setLanguage] = useState('html');
     const [output, setOutput] = useState('');
-    const [preview, setPreview] = useState('');
+    const iframeRef = useRef(null);
 
     useEffect(() => {
         if (language === 'html' || language === 'css') {
@@ -18,12 +18,34 @@ function TextEditor() {
         axios.post('https://text-editor-app-backend.onrender.com/run-code', { code, language })
             .then(res => {
                 if (language === 'html' || language === 'css') {
-                    setPreview(res.data.output || res.data.error);
+                    updatePreview(res.data.output || res.data.error);
                 } else {
                     setOutput(res.data.output || res.data.error);
                 }
             })
             .catch(err => console.error(err));
+    };
+
+    const updatePreview = (content) => {
+        const iframe = iframeRef.current;
+        if (!iframe) return;
+
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        
+        if (language === 'html') {
+            iframeDoc.open();
+            iframeDoc.write(content);
+            iframeDoc.close();
+        } else if (language === 'css') {
+            iframeDoc.body.innerHTML = `
+                <style>${content}</style>
+                <div class="preview-content">
+                    <h1>CSS Preview</h1>
+                    <p>This is a sample text to preview your CSS.</p>
+                    <button class="btn">Sample Button</button>
+                </div>
+            `;
+        }
     };
 
     const saveFile = () => {
@@ -32,24 +54,6 @@ function TextEditor() {
         link.href = URL.createObjectURL(blob);
         link.download = `code.${language}`;
         link.click();
-    };
-
-    const renderPreview = () => {
-        if (language === 'html') {
-            return <iframe srcDoc={preview} className="w-full h-full border-0" />;
-        } else if (language === 'css') {
-            return (
-                <div className="w-full h-full bg-white">
-                    <style>{preview}</style>
-                    <div className="p-4">
-                        <h1>CSS Preview</h1>
-                        <p>This is a sample text to preview your CSS.</p>
-                        <button className="btn">Sample Button</button>
-                    </div>
-                </div>
-            );
-        }
-        return null;
     };
 
     return (
@@ -105,7 +109,12 @@ function TextEditor() {
                     <div className="w-full lg:w-1/2 space-y-6">
                         {(language === 'html' || language === 'css') ? (
                             <div className="bg-white rounded-lg overflow-hidden h-[500px]">
-                                {renderPreview()}
+                                <iframe
+                                    ref={iframeRef}
+                                    title="Preview"
+                                    className="w-full h-full border-0"
+                                    sandbox="allow-scripts"
+                                />
                             </div>
                         ) : (
                             <div>
