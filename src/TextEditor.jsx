@@ -109,7 +109,7 @@ function TextEditor() {
                                 scrollBeyondLastLine: false,
                             }}
                         />
-                        <div className="mt-4 space-x-4">
+                        <div className="mt-4 justify-start flex flex-wrap">
                             <button
                                 onClick={runCode}
                                 className="bg-blue-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
