@@ -34,6 +34,10 @@ function TextEditor() {
         link.click();
     };
 
+    const saveFile = () => {
+     
+    };
+
     const renderPreview = () => {
         if (language === 'html') {
             return <iframe srcDoc={preview} className="w-full h-full border-0" />;
@@ -117,6 +121,12 @@ function TextEditor() {
                                 className="bg-green-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-green-700 transition duration-300 ease-in-out"
                             >
                                 Save File
+                            </button>
+                            <button
+                                onClick={shareFile}
+                                className="bg-red-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-red-700 transition duration-300 ease-in-out"
+                            >
+                                Share File
                             </button>
                         </div>
                     </div>
