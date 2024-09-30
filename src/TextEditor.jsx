@@ -38,6 +38,16 @@ function TextEditor() {
        setCode('');
     };
 
+    const copyCode = () => {
+        navigator.clipboard.writeText(code)
+            .then(() => {
+                alert('Code copied to clipboard!');
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    };
+
     const renderPreview = () => {
         if (language === 'html') {
             return <iframe srcDoc={preview} className="w-full h-full border-0" />;
@@ -109,7 +119,7 @@ function TextEditor() {
                                 scrollBeyondLastLine: false,
                             }}
                         />
-                        <div className="mt-4 sm:justify-center sm:flex-col sm:gap-8 gap-8 flex justify-start">
+                        <div className="mt-4 sm:justify-center sm:flex-row sm:gap-8 gap-8 flex-col justify-start">
                             <button
                                 onClick={runCode}
                                 className="bg-blue-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
@@ -128,6 +138,13 @@ function TextEditor() {
                             >
                                 Clear Code
                             </button>
+                             <button
+                                onClick={copyCode}
+                                className="bg-yellow-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-yellow-700 transition duration-300 ease-in-out"
+                            >
+                                Copy Code
+                            </button>
+                            
                         </div>
                     </div>
 
