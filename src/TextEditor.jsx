@@ -34,8 +34,8 @@ function TextEditor() {
         link.click();
     };
 
-    const saveFile = () => {
-     
+    const clearCode = () => {
+       setCode('');
     };
 
     const renderPreview = () => {
@@ -123,10 +123,10 @@ function TextEditor() {
                                 Save File
                             </button>
                             <button
-                                onClick={shareFile}
+                                onClick={clearCode}
                                 className="bg-red-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-red-700 transition duration-300 ease-in-out"
                             >
-                                Share File
+                                Clear Code
                             </button>
                         </div>
                     </div>
