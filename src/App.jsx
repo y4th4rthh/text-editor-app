@@ -6,8 +6,11 @@ import HomePage from './HomePage';
 import TextEditor from './TextEditor';
 import RegisterPage from './RegisterPage';
 import Footer from './Footer';
-import LoginPage from './LoginPage';
 import ContactPage from './ContactPage';
+import LoginPage from './LoginPage';
+import HTMLTutorial from './HTMLTutorial';
+import CSSTutorial from './CSSTutorial';
+import PythonTutorial from './PythonTutorial';
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -30,9 +33,13 @@ const App = () => (
                 </PrivateRoute>
               } 
             />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/html-tutorial" element={<HTMLTutorial />} />
+            <Route path="/css-tutorial" element={<CSSTutorial />} />
+            <Route path="/python-tutorial" element={<PythonTutorial />} />
+            
           </Routes>
         </main>
         <Footer />
