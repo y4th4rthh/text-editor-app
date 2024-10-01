@@ -119,7 +119,7 @@ function TextEditor() {
                                 scrollBeyondLastLine: false,
                             }}
                         />
-                        <div className="mt-4 sm:justify-center sm:flex-row sm:gap-8 gap-8 flex-col justify-start">
+                        <div className="mt-4 grid grid-cols-1 gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-4 text-xs">
                             <button
                                 onClick={runCode}
                                 className="bg-blue-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
