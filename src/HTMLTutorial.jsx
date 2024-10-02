@@ -125,7 +125,7 @@ const HTMLTutorial = () => {
                 </ul>
                 <div className="mt-4">
                   <h4 className="text-lg font-semibold text-gray-300 mb-2">Example:</h4>
-                  <pre className="bg-gray-700 p-4 rounded-lg overflow-x-auto text-white">
+                  <pre className="bg-gray-900 p-4 rounded-lg overflow-x-auto text-white">
                     <code>{section.example}</code>
                   </pre>
                 </div>
