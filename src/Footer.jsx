@@ -5,10 +5,10 @@ import { FiMail } from 'react-icons/fi';
 const Footer = () => (
   <footer className="bg-gray-900 text-white p-4">
     <div className="container mx-auto text-center">
-      <p className='sm:hidden' >&copy; 2024 "I Can Compile" ahh Editor.</p>
+      <p className='sm:hidden' >&copy; 2024 Code Genius.</p>
 
       <div className='flex justify-around items-center mt-4'>
-      <p className='hidden sm:block'>&copy; 2024 "I Can Compile" ahh Editor. All rights reserved.</p>
+      <p className='hidden sm:block'>&copy; 2024 Code Genius. All rights reserved.</p>
         <div className=' text-gray-100 flex justify-around sm:w-[250px] w-full mt-4 sm:mt-0'>
           <a
             href="mailto:yatharthpatel014@gmail.com"
