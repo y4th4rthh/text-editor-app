@@ -30,19 +30,21 @@ const tutorials = [
     color: 'from-green-400 to-teal-500',
     features: ['Data structures', 'Object-oriented programming', 'File handling', 'Web frameworks']
   },
-  {
-    title: 'Bootstrap Tutorial',
-    description: 'Learn the most popular CSS framework for responsive web design.',
-    path: '/bootstrap-tutorial',
-    color: 'from-purple-400 to-pink-500',
-    features: ['Responsive grid', 'Pre-built components', 'JavaScript plugins', 'Customization']
-  },
+  
   {
     title: 'Tailwind CSS Tutorial',
     description: 'Master the utility-first CSS framework for rapid UI development.',
     path: '/tailwind-tutorial',
-    color: 'from-teal-400 to-blue-500',
+    color: 'from-purple-400 to-pink-500',
     features: ['Utility classes', 'Responsive design', 'Custom configurations', 'Performance optimization']
+  },
+
+  {
+    title: 'Node.js Tutorial',
+    description: 'Learn the most popular serverside framework for responsive web design.',
+    path: '/nodejs-tutorial',
+    color: 'from-teal-400 to-blue-500',
+    features: ['Node modules', 'File system', 'HTTP Server', 'Asynchronous Programming']
   },
   {
     title: 'React.js Tutorial',
