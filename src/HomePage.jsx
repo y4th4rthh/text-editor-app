@@ -61,7 +61,7 @@ const HomePage = () => (
       {/* Hero Section */}
       <div className="text-center mb-16">
         <h1 className="sm:text-5xl text-3xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-          "I Can Compile" ahh Editor
+          Code Genius
         </h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Experience the power of multi-language compilation right in your browser.
