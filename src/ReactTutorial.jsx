@@ -483,22 +483,30 @@ const VisibleTodoList = connect(
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 pb-2">
-          React Tutorial
-        </h1>
+    <div className="max-w-6xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r  from-blue-400 to-purple-500 mb-8 pb-2">
+        React Tutorial
+      </h1>
 
-        {reactTutorials.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-8">
-            <div className="flex items-center mb-4">
-              <div className="text-blue-400 mr-2">
-                {category.icon}
-              </div>
-              <h2 className="text-2xl font-bold text-white">{category.category}</h2>
+      {reactTutorials.map((category, categoryIndex) => (
+        <div key={categoryIndex} className="mb-8">
+          <div className="flex items-center mb-4">
+            {/* <div className="text-blue-400 mr-2">
+              {category.icon}
             </div>
+            <h2 className="text-2xl font-bold text-white">{category.category}</h2> */}
+          </div>
 
-            {category.topics.map((topic, topicIndex) => (
-              <div key={topicIndex} className="mb-4 bg-gray-800 rounded-lg overflow-hidden">
+          {category.topics.map((topic, topicIndex) => (
+            <div key={topicIndex} className="mb-8">
+              <div className="flex items-center mb-4">
+                <div className="text-blue-400 mr-2">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">{topic.title}</h2>
+              </div>
+
+              <div className="mb-4 bg-gray-800 rounded-lg overflow-hidden">
                 <button
                   onClick={() => toggleTopic(topicIndex)}
                   className="w-full flex items-center justify-between p-4 hover:bg-gray-700 transition-colors duration-200"
@@ -552,11 +560,12 @@ const VisibleTodoList = connect(
                   </div>
                 )}
               </div>
-            ))}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
+  </div>
   );
 };
 
