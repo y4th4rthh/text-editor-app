@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function TextEditor() {
     const [code, setCode] = useState('// Write your code here');
-    const [language, setLanguage] = useState('html');
+    const [language, setLanguage] = useState('python');
     const [output, setOutput] = useState('');
     const [preview, setPreview] = useState('');
 
