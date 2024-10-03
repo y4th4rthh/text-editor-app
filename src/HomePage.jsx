@@ -83,7 +83,7 @@ const HomePage = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <FeatureCard
             title="Multi-Language Support"
-            description="From Python to Java, compile and run code in multiple programming languages."
+            description="From Python to HTML HTML to CSS, compile and run code in multiple programming languages."
           />
           <FeatureCard
             title="Instant Compilation"
