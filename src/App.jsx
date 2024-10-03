@@ -11,7 +11,7 @@ import LoginPage from './LoginPage';
 import HTMLTutorial from './HTMLTutorial';
 import CSSTutorial from './CSSTutorial';
 import PythonTutorial from './PythonTutorial';
-import BootstrapTutorial from './BootstrapTutorial';
+import NodeJSTutorial from './NodeJSTutorial';
 import TailwindTutorial from './TailwindTutorial';
 import ReactTutorial from './ReactTutorial';
 
@@ -42,7 +42,7 @@ const App = () => (
             <Route path="/html-tutorial" element={<HTMLTutorial />} />
             <Route path="/css-tutorial" element={<CSSTutorial />} />
             <Route path="/python-tutorial" element={<PythonTutorial />} />
-            <Route path="/bootstrap-tutorial" element={<BootstrapTutorial />} />
+            <Route path="/nodejs-tutorial" element={<NodeJSTutorial />} />
             <Route path="/tailwind-tutorial" element={<TailwindTutorial />} />
             <Route path="/react-tutorial" element={<ReactTutorial />} />
             
