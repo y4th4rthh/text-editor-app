@@ -89,7 +89,7 @@ function TextEditor() {
         <div className='w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex justify-center items-center p-6'>
             <div className="w-full max-w-6xl bg-gray-800 shadow-2xl rounded-xl p-8 space-y-8">
                 <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
-                    "I Can Compile" ahh Editor
+                    Code Genius Text Editor
                 </h1>
 
                 <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
