@@ -1,4 +1,5 @@
 import React from 'react';
+import { BookOpen } from 'lucide-react';
 
 const HTMLTutorial = () => {
   const htmlTutorials = [
@@ -109,10 +110,14 @@ const HTMLTutorial = () => {
         <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
           HTML Tutorial
         </h1>
-        
+
         {htmlTutorials.map((topic, index) => (
           <div key={index} className="mb-6 bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-white mb-4">{topic.title}</h2>
+            <h2 className="text-2xl flex items-center font-bold text-white mb-4">
+              <div className="text-blue-400 mr-2">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              {topic.title}</h2>
             <p className="text-gray-300 mb-4">{topic.content}</p>
 
             {topic.sections.map((section, sIndex) => (
