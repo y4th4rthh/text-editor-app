@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
@@ -6,8 +6,25 @@ import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
 const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {   
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-gray-900 text-white p-4">
@@ -28,7 +45,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden flex  justify-evenly mt-4">
+        <div ref={dropdownRef} className="md:hidden flex  justify-evenly mt-4">
           <NavLinks isAuthenticated={isAuthenticated} logout={logout} mobile />
         </div>
       )}
