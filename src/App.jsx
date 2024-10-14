@@ -28,24 +28,23 @@ const App = () => (
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route 
-              path="/editor" 
-              element={
-                <PrivateRoute>
-                  <TextEditor />
-                </PrivateRoute>
-              } 
-            />
+            <Route path="/editor" element={<PrivateRoute><TextEditor/></PrivateRoute>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/html-tutorial" element={<HTMLTutorial />} />
+            {/* <Route path="/html-tutorial" element={<HTMLTutorial />} />
             <Route path="/css-tutorial" element={<CSSTutorial />} />
             <Route path="/python-tutorial" element={<PythonTutorial />} />
             <Route path="/nodejs-tutorial" element={<NodeJSTutorial />} />
             <Route path="/tailwind-tutorial" element={<TailwindTutorial />} />
-            <Route path="/react-tutorial" element={<ReactTutorial />} />
-            
+            <Route path="/react-tutorial" element={<ReactTutorial />} /> */}
+
+            <Route path="/html-tutorial" element={<PrivateRoute><HTMLTutorial/></PrivateRoute>} />      
+            <Route path="/css-tutorial" element={<PrivateRoute><CSSTutorial/></PrivateRoute>} />
+            <Route path="/python-tutorial" element={<PrivateRoute><PythonTutorial/></PrivateRoute>} />
+            <Route path="/nodejs-tutorial" element={<PrivateRoute><NodeJSTutorial/></PrivateRoute>} />
+            <Route path="/tailwind-tutorial" element={<PrivateRoute><TailwindTutorial/></PrivateRoute>} />
+            <Route path="/react-tutorial" element={<PrivateRoute><ReactTutorial/></PrivateRoute>} />   
           </Routes>
         </main>
         <Footer />
