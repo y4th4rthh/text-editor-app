@@ -3,7 +3,7 @@
 ![Project Preview](./src/assets/ICC.png)
 
 
-Access the live project: [https://main--iamcodegenius.netlify.app/](https://main--iamcodegenius.netlify.app/)
+Access the live project: [https://main--codewizzz.netlify.app/](https://main--codewizzz.netlify.app/)
 
 ## Cloning and Running the Vite Project Locally
 
