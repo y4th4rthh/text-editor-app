@@ -14,6 +14,7 @@ import PythonTutorial from './PythonTutorial';
 import NodeJSTutorial from './NodeJSTutorial';
 import TailwindTutorial from './TailwindTutorial';
 import ReactTutorial from './ReactTutorial';
+import ColorPicker from './ColorPicker'; 
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -28,7 +29,14 @@ const App = () => (
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/editor" element={<PrivateRoute><TextEditor/></PrivateRoute>} />
+            <Route 
+              path="/editor" 
+              element={
+                <PrivateRoute> 
+                  <TextEditor />
+                </PrivateRoute>
+              } 
+            />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -45,6 +53,7 @@ const App = () => (
             <Route path="/nodejs-tutorial" element={<PrivateRoute><NodeJSTutorial/></PrivateRoute>} />
             <Route path="/tailwind-tutorial" element={<PrivateRoute><TailwindTutorial/></PrivateRoute>} />
             <Route path="/react-tutorial" element={<PrivateRoute><ReactTutorial/></PrivateRoute>} />   
+            <Route path="/color-picker" element={<ColorPicker/>} />
           </Routes>
         </main>
         <Footer />
