@@ -30,7 +30,7 @@ const tutorials = [
     color: 'from-green-400 to-teal-500',
     features: ['Data structures', 'Object-oriented programming', 'File handling', 'Web frameworks']
   },
-  
+
   {
     title: 'Tailwind CSS Tutorial',
     description: 'Master the utility-first CSS framework for rapid UI development.',
@@ -61,7 +61,7 @@ const HomePage = () => (
       {/* Hero Section */}
       <div className="text-center mb-16">
         <h1 className="sm:text-5xl text-3xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-          Code Genius
+          Code Wizard
         </h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Experience the power of multi-language compilation right in your browser.
@@ -83,7 +83,7 @@ const HomePage = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <FeatureCard
             title="Multi-Language Support"
-            description="From Python to HTML HTML to CSS, compile and run code in multiple programming languages."
+            description="From Python to Java, compile and run code in multiple programming languages."
           />
           <FeatureCard
             title="Instant Compilation"
@@ -100,6 +100,8 @@ const HomePage = () => (
         </div>
       </div>
 
+
+
       <div className="max-w-6xl mx-auto mb-12">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-extrabold">
@@ -109,6 +111,8 @@ const HomePage = () => (
             Choose a tutorial to start your coding journey
           </p>
         </div>
+
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tutorials.slice(0, 3).map((tutorial, index) => (
@@ -186,13 +190,16 @@ const HomePage = () => (
         </div>
       </div>
 
+
+
       {/* Call to Action Section */}
       <div className="text-center bg-gray-800 p-8 rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold mb-4">Ready to elevate your coding experience?</h2>
         <p className="text-xl mb-6">Join thousands of developers who trust our platform for their coding needs.</p>
-        <Link
+       <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">
+       <Link
           to="/register"
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg mr-4"
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
         >
           Sign Up Free
         </Link>
@@ -202,6 +209,14 @@ const HomePage = () => (
         >
           Contact Us?
         </Link>
+
+        <Link
+          to="/color-picker"
+          className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
+        >
+          Color Wizard
+        </Link>
+       </div>
       </div>
     </div>
   </div>
