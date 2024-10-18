@@ -91,7 +91,7 @@ const HomePage = () => (
           />
           <FeatureCard
             title="Accessible Anywhere"
-            description="Code on-the-go with our cloud-based compiler. Access your projects from any device, anytime."
+            description="Code on-the-go with our efficient compiler. Compile your code from any device, anytime."
           />
           <FeatureCard
             title="Collaborative Coding"
