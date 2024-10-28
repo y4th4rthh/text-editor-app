@@ -100,7 +100,7 @@ const LoginPage = () => {
     //   </div>
     // </div>
 
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center p-4">
+    <div className="sm:min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-gray-800 rounded shadow-lg overflow-hidden">
         <div className="p-8">
           <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Login.</h2>
