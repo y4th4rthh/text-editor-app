@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import { IoMdClose } from 'react-icons/io';
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -10,7 +11,7 @@ const LoginPage = () => {
     email: '',
     password: ''
   });
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -42,7 +43,7 @@ const LoginPage = () => {
 
       const data = await response.json();
       login(data.token);
-      navigate('/editor');
+      navigate('/main');
     } catch (error) {
       console.error('Login failed:', error.message);
       setError("Error: Invalid Credentials!");
@@ -103,9 +104,17 @@ const LoginPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-gray-800 rounded shadow-lg overflow-hidden">
         <div className="p-8">
-          <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Login.</h2>
-          <p className="text-left font-light text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">WELCOME BACK!!</p>
-         
+          <div className="flex justify-between ">
+            <div>
+              <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Login.</h2>
+              <p className="text-left font-light text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">WELCOME BACK!!</p>
+            </div>
+            <div className=''>
+              <Link to="/">
+                <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+              </Link>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
@@ -148,7 +157,7 @@ const LoginPage = () => {
                 {loading ? "Logging in..." : "Login"}
               </button>
             </div>
-            
+
           </form>
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </div>

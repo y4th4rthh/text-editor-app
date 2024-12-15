@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const ColorPicker = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +22,7 @@ const ColorPicker = () => {
     { name: 'Pink', tailwind: 'bg-pink-300', hex: '#f9a8d4' },
     { name: 'Navy', tailwind: 'bg-blue-900', hex: '#1e3a8a' },
     { name: 'Teal', tailwind: 'bg-teal-500', hex: '#14b8a6' },
-  
+
     // Additional colors
     { name: 'Lime', tailwind: 'bg-lime-500', hex: '#84cc16' },
     { name: 'Indigo', tailwind: 'bg-indigo-500', hex: '#6366f1' },
@@ -35,7 +36,7 @@ const ColorPicker = () => {
     { name: 'Stone', tailwind: 'bg-stone-500', hex: '#78716c' },
     { name: 'Zinc', tailwind: 'bg-zinc-500', hex: '#71717a' },
   ];
-  
+
 
   const filteredColors = COLOR_DATA.filter(color =>
     color.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,69 +51,93 @@ const ColorPicker = () => {
   };
 
   return (
-    <div className='w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex justify-center items-center sm:p-6 p-4'>
-      <div className="w-full max-w-5xl bg-gray-800 shadow-2xl rounded-xl sm:p-8 p-4 space-y-8">
-        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
-          Color Wizard
-        </h1>
+    <div className=' bg-gradient-to-br from-gray-900 to-gray-800'>
+      <div className='w-full min-h-screen flex justify-center items-center sm:p-6 p-4'>
+        <div className="w-full max-w-5xl bg-gray-800 shadow-2xl rounded-xl sm:p-8 p-4 space-y-8">
+          <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
+            Color Wizard
+          </h1>
 
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-300 mb-2">Search Colors:</label>
-          <input
-            type="text"
-            placeholder="Search colors..."
-            className="bg-gray-700 border border-gray-600 rounded-md p-3 w-full text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-
-        <div className="overflow-x-auto">
-          <table className="w-full bg-gray-800 rounded-lg border border-gray-600 shadow-lg">
-            <thead>
-              <tr className="bg-gray-700 border border-gray-600">
-                <th className="px-4 py-2 text-center text-gray-200">Color</th>
-                <th className="px-4 py-2 text-center text-gray-200 hidden sm:block">Name</th>
-                <th className="px-4 py-2 text-center text-gray-200">Class</th>
-                <th className="px-4 py-2 text-center text-gray-200">Hex</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredColors.map((color, index) => (
-                <tr key={index} className={index % 2 === 0 ? 'bg-gray-800 border border-gray-600' : 'bg-gray-650'}>
-                  <td className="px-4 py-2 text-center">
-                    <div 
-                      className={`w-8 h-8 rounded-full mx-auto ${color.tailwind}`}
-                    ></div>
-                  </td>
-                  <td className="px-4 py-2 text-center text-gray-200 hidden sm:block">{color.name}</td>
-                  <td className="px-4 py-2 text-center text-gray-200 text-sm sm:text-base">
-                    <button 
-                      onClick={() => handleCopy(color.hex)}
-                      className="hover:underline text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out"
-                    >
-                      {color.hex}
-                    </button>
-                  </td>
-                  <td className="px-4 py-2 text-center text-sm sm:text-base">
-                    <button 
-                      onClick={() => handleCopy(color.tailwind)}
-                      className="hover:underline text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out"
-                    >
-                      {color.tailwind}
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {copiedText && (
-          <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded shadow-lg transition duration-300 ease-in-out">
-            Copied: {copiedText}
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-300 mb-2">Search Colors:</label>
+            <input
+              type="text"
+              placeholder="Search colors..."
+              className="bg-gray-700 border border-gray-600 rounded-md p-3 w-full text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
-        )}
+
+          <div className="overflow-x-auto">
+            <table className="w-full bg-gray-800 rounded-lg border border-gray-600 shadow-lg">
+              <thead>
+                <tr className="bg-gray-700 border border-gray-600">
+                  <th className="px-4 py-2 text-center text-gray-200">Color</th>
+                  <th className="px-4 py-2 text-center text-gray-200 hidden sm:block">Name</th>
+                  <th className="px-4 py-2 text-center text-gray-200">Class</th>
+                  <th className="px-4 py-2 text-center text-gray-200">Hex</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredColors.map((color, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-gray-800 border border-gray-600' : 'bg-gray-650'}>
+                    <td className="px-4 py-2 text-center">
+                      <div
+                        className={`w-8 h-8 rounded-full mx-auto ${color.tailwind}`}
+                      ></div>
+                    </td>
+                    <td className="px-4 py-2 text-center text-gray-200 hidden sm:block">{color.name}</td>
+                    <td className="px-4 py-2 text-center text-gray-200 text-sm sm:text-base">
+                      <button
+                        onClick={() => handleCopy(color.hex)}
+                        className="hover:underline text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out"
+                      >
+                        {color.hex}
+                      </button>
+                    </td>
+                    <td className="px-4 py-2 text-center text-sm sm:text-base">
+                      <button
+                        onClick={() => handleCopy(color.tailwind)}
+                        className="hover:underline text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out"
+                      >
+                        {color.tailwind}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {copiedText && (
+            <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded shadow-lg transition duration-300 ease-in-out">
+              Copied: {copiedText}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="text-center py-16">
+
+        <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
+          Experience the power of multi-language compilation right in your browser.
+          Write, test, and run code seamlessly with our advanced online compiler.
+        </p>
+        <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">
+          <Link
+            to="/editor"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded transition duration-300 text-lg"
+          >
+            Compile Wizard
+          </Link>
+
+          <Link
+            to="/color-picker"
+            className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
+          >
+            Color Wizard
+          </Link>
+        </div>
       </div>
     </div>
   );

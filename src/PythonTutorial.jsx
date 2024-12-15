@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Code, BookOpen, Folder, Database } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { IoMdClose } from 'react-icons/io';
 
 const PythonTutorial = () => {
   const [expandedTopics, setExpandedTopics] = useState({});
@@ -374,9 +376,18 @@ const PythonTutorial = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 pb-2">
-          Python Tutorial
-        </h1>
+        <div className="flex justify-between">
+          <div>
+            <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 pb-2">
+              Python Tutorial
+            </h1>
+          </div>
+          <div className=''>
+            <Link to="/main">
+              <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+            </Link>
+          </div>
+        </div>
 
         {pythonTutorials.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-8">
@@ -404,7 +415,7 @@ const PythonTutorial = () => {
                 {expandedTopics[topicIndex] && (
                   <div className="p-4 border-t border-gray-700">
                     <p className="text-gray-300 mb-4">{topic.content}</p>
-                    
+
                     {topic.sections.map((section, sectionIndex) => (
                       <div key={sectionIndex} className="mb-4">
                         <button

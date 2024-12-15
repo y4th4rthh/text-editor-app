@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { IoMdClose } from 'react-icons/io';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -109,9 +110,17 @@ const RegisterPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-gray-800 rounded shadow-lg overflow-hidden">
         <div className="p-8">
-          <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Register.</h2>
-          <p className="text-left text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-light mb-8">JOIN US :)</p>
-         
+          <div className="flex justify-between ">
+            <div>
+              <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Register.</h2>
+              <p className="text-left text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-light mb-8">JOIN US :)</p>
+            </div>
+            <div className=''>
+              <Link to="/">
+                <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+              </Link>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
@@ -120,7 +129,7 @@ const RegisterPage = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={form.email} 
+                  value={form.email}
                   onChange={handleChange}
                   placeholder="Enter your Email"
                   className="w-full px-4 py-2 border border-gray-600 rounded focus:ring-blue-500 focus:border-blue-500 bg-gray-700 text-white pl-10"

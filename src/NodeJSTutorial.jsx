@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Code, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { IoMdClose } from 'react-icons/io';
 
 const NodeJSTutorial = () => {
     const [expandedSections, setExpandedSections] = useState({});
@@ -253,9 +255,18 @@ app.listen(3000, () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-6">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r  from-blue-400 to-purple-500 mb-8 pb-2">
-                    Node.js Tutorial
-                </h1>
+                <div className="flex justify-between">
+                    <div>
+                        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 pb-2">
+                            Node.js Tutorial
+                        </h1>
+                    </div>
+                    <div className=''>
+                        <Link to="/main">
+                            <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+                        </Link>
+                    </div>
+                </div>
 
                 {sections.map((section) => (
                     <div key={section.id} className="mb-8">
@@ -297,7 +308,7 @@ app.listen(3000, () => {
                                                 )}
                                             </button>
 
-                            {expandedSubsections[`${section.id}-${subsectionIndex}`] && (
+                                            {expandedSubsections[`${section.id}-${subsectionIndex}`] && (
                                                 <div className="mt-4 pl-4">
                                                     <ul className="list-disc pl-6 text-gray-300 mb-4">
                                                         {subsection.content.map((point, pIndex) => (

@@ -14,7 +14,8 @@ import PythonTutorial from './PythonTutorial';
 import NodeJSTutorial from './NodeJSTutorial';
 import TailwindTutorial from './TailwindTutorial';
 import ReactTutorial from './ReactTutorial';
-import ColorPicker from './ColorPicker'; 
+import ColorPicker from './ColorPicker';
+import Main from './MainPage'; 
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -52,7 +53,8 @@ const App = () => (
             <Route path="/python-tutorial" element={<PrivateRoute><PythonTutorial/></PrivateRoute>} />
             <Route path="/nodejs-tutorial" element={<PrivateRoute><NodeJSTutorial/></PrivateRoute>} />
             <Route path="/tailwind-tutorial" element={<PrivateRoute><TailwindTutorial/></PrivateRoute>} />
-            <Route path="/react-tutorial" element={<PrivateRoute><ReactTutorial/></PrivateRoute>} />   
+            <Route path="/react-tutorial" element={<PrivateRoute><ReactTutorial/></PrivateRoute>} />  
+            <Route path="/main" element={<PrivateRoute><Main/></PrivateRoute>} /> 
             <Route path="/color-picker" element={<ColorPicker/>} />
           </Routes>
         </main>

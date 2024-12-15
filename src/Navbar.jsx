@@ -58,7 +58,9 @@ const NavLinks = ({ isAuthenticated, logout, mobile = false }) => {
 
   return (
     <>
-      <Link to="/" className={linkClass}>Home</Link>
+    {isAuthenticated && (
+      <Link to="/main" className={linkClass}>Home</Link>
+    )}
       {isAuthenticated && (
         <Link to="/editor" className={linkClass}>Editor</Link>
       )}

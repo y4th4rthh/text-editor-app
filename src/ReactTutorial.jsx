@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Code, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { IoMdClose } from 'react-icons/io';
 
 const ReactTutorial = () => {
   const [expandedTopics, setExpandedTopics] = useState({});
@@ -221,26 +223,26 @@ function Example() {
 }`
             },
             {
-                title: 'useState',
-                content: [
-                  '• Add state to function components',
-                  '• Returns current state value and a function to update it',
-                  '• Can pass an initial state value'
-                ],
-                example: `import React, { useState, useEffect } from 'react';
+              title: 'useState',
+              content: [
+                '• Add state to function components',
+                '• Returns current state value and a function to update it',
+                '• Can pass an initial state value'
+              ],
+              example: `import React, { useState, useEffect } from 'react';
   
   function Example() {
     const [count, setCount] = useState(0);
     `
-              },
-                {
-                    title: 'useContext',
-                    content: [
-                    '• Share data with deeply nested components',
-                    '• Avoid prop drilling',
-                    '• Update context value with a provider'
-                    ],
-                    example: `import React, { useContext } from 'react';
+            },
+            {
+              title: 'useContext',
+              content: [
+                '• Share data with deeply nested components',
+                '• Avoid prop drilling',
+                '• Update context value with a provider'
+              ],
+              example: `import React, { useContext } from 'react';
                 
                     const ThemeContext = React.createContext('light');
 
@@ -252,15 +254,15 @@ function Example() {
                         );
                         }
                     `
-                },
-                {
-                    title: 'useReducer',
-                    content: [
-                      '• Manage complex state logic in function components',
-                      '• Similar to Redux reducers',
-                      '• Returns the current state and a dispatch function'
-                    ],
-                    example: `import React, { useReducer } from 'react';
+            },
+            {
+              title: 'useReducer',
+              content: [
+                '• Manage complex state logic in function components',
+                '• Similar to Redux reducers',
+                '• Returns the current state and a dispatch function'
+              ],
+              example: `import React, { useReducer } from 'react';
                     
                     const initialState = { count: 0 };
 
@@ -287,7 +289,7 @@ function Example() {
                         );
                     }
                     `
-                }
+            }
           ]
         },
         {
@@ -414,7 +416,7 @@ function HomeButton() {
     );
 }`
             }
-        
+
           ]
         },
         {
@@ -475,7 +477,7 @@ const VisibleTodoList = connect(
             }
           ]
         },
-        
+
 
       ]
     }
@@ -483,89 +485,98 @@ const VisibleTodoList = connect(
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-    <div className="max-w-6xl mx-auto">
-      <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r  from-blue-400 to-purple-500 mb-8 pb-2">
-        React Tutorial
-      </h1>
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between">
+          <div>
+            <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 pb-2">
+              React Tutorial
+            </h1>
+          </div>
+          <div className=''>
+            <Link to="/main">
+              <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+            </Link>
+          </div>
+        </div>
 
-      {reactTutorials.map((category, categoryIndex) => (
-        <div key={categoryIndex} className="mb-8">
-          <div className="flex items-center mb-4">
-            {/* <div className="text-blue-400 mr-2">
+        {reactTutorials.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="mb-8">
+            <div className="flex items-center mb-4">
+              {/* <div className="text-blue-400 mr-2">
               {category.icon}
             </div>
             <h2 className="text-2xl font-bold text-white">{category.category}</h2> */}
-          </div>
-
-          {category.topics.map((topic, topicIndex) => (
-            <div key={topicIndex} className="mb-8">
-              <div className="flex items-center mb-4">
-                <div className="text-blue-400 mr-2">
-                  <BookOpen className="w-6 h-6" />
-                </div>
-                <h2 className="text-2xl font-bold text-white">{topic.title}</h2>
-              </div>
-
-              <div className="mb-4 bg-gray-800 rounded-lg overflow-hidden">
-                <button
-                  onClick={() => toggleTopic(topicIndex)}
-                  className="w-full flex items-center justify-between p-4 hover:bg-gray-700 transition-colors duration-200"
-                >
-                  <h3 className="text-xl font-semibold text-white">{topic.title}</h3>
-                  {expandedTopics[topicIndex] ? (
-                    <ChevronUp className="w-5 h-5 text-gray-400" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400" />
-                  )}
-                </button>
-
-                {expandedTopics[topicIndex] && (
-                  <div className="p-4 border-t border-gray-700">
-                    <p className="text-gray-300 mb-4">{topic.content}</p>
-                    
-                    {topic.sections.map((section, sectionIndex) => (
-                      <div key={sectionIndex} className="mb-4">
-                        <button
-                          onClick={() => toggleSection(topicIndex, sectionIndex)}
-                          className="w-full flex items-center justify-between bg-gray-700 p-3 rounded-lg hover:bg-gray-600 transition-colors duration-200"
-                        >
-                          <h4 className="text-lg font-semibold text-white">{section.title}</h4>
-                          {expandedSections[`${topicIndex}-${sectionIndex}`] ? (
-                            <ChevronUp className="w-4 h-4 text-gray-400" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4 text-gray-400" />
-                          )}
-                        </button>
-
-                        {expandedSections[`${topicIndex}-${sectionIndex}`] && (
-                          <div className="mt-4 pl-4">
-                            <ul className="list-disc pl-6 text-gray-300 mb-4">
-                              {section.content.map((point, pIndex) => (
-                                <li key={pIndex} className="mb-2">{point}</li>
-                              ))}
-                            </ul>
-                            <div className="mt-4">
-                              <div className="flex items-center mb-2">
-                                <Code className="w-5 h-5 text-blue-400 mr-2" />
-                                <h5 className="text-sm font-semibold text-white">Example:</h5>
-                              </div>
-                              <pre className="bg-gray-900 text-gray-300 p-4 rounded-lg overflow-x-auto">
-                                <code>{section.example}</code>
-                              </pre>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
             </div>
-          ))}
-        </div>
-      ))}
+
+            {category.topics.map((topic, topicIndex) => (
+              <div key={topicIndex} className="mb-8">
+                <div className="flex items-center mb-4">
+                  <div className="text-blue-400 mr-2">
+                    <BookOpen className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">{topic.title}</h2>
+                </div>
+
+                <div className="mb-4 bg-gray-800 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => toggleTopic(topicIndex)}
+                    className="w-full flex items-center justify-between p-4 hover:bg-gray-700 transition-colors duration-200"
+                  >
+                    <h3 className="text-xl font-semibold text-white">{topic.title}</h3>
+                    {expandedTopics[topicIndex] ? (
+                      <ChevronUp className="w-5 h-5 text-gray-400" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                    )}
+                  </button>
+
+                  {expandedTopics[topicIndex] && (
+                    <div className="p-4 border-t border-gray-700">
+                      <p className="text-gray-300 mb-4">{topic.content}</p>
+
+                      {topic.sections.map((section, sectionIndex) => (
+                        <div key={sectionIndex} className="mb-4">
+                          <button
+                            onClick={() => toggleSection(topicIndex, sectionIndex)}
+                            className="w-full flex items-center justify-between bg-gray-700 p-3 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+                          >
+                            <h4 className="text-lg font-semibold text-white">{section.title}</h4>
+                            {expandedSections[`${topicIndex}-${sectionIndex}`] ? (
+                              <ChevronUp className="w-4 h-4 text-gray-400" />
+                            ) : (
+                              <ChevronDown className="w-4 h-4 text-gray-400" />
+                            )}
+                          </button>
+
+                          {expandedSections[`${topicIndex}-${sectionIndex}`] && (
+                            <div className="mt-4 pl-4">
+                              <ul className="list-disc pl-6 text-gray-300 mb-4">
+                                {section.content.map((point, pIndex) => (
+                                  <li key={pIndex} className="mb-2">{point}</li>
+                                ))}
+                              </ul>
+                              <div className="mt-4">
+                                <div className="flex items-center mb-2">
+                                  <Code className="w-5 h-5 text-blue-400 mr-2" />
+                                  <h5 className="text-sm font-semibold text-white">Example:</h5>
+                                </div>
+                                <pre className="bg-gray-900 text-gray-300 p-4 rounded-lg overflow-x-auto">
+                                  <code>{section.example}</code>
+                                </pre>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
   );
 };
 
