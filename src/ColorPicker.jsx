@@ -132,10 +132,10 @@ const ColorPicker = () => {
           </Link>
 
           <Link
-            to="/color-picker"
+            to="/main"
             className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg"
           >
-            Color Wizard
+            Tutorial Wizard
           </Link>
         </div>
       </div>
