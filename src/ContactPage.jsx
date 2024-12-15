@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 const ContactPage = () => {
   const formRef = useRef();
@@ -124,9 +126,17 @@ const ContactPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-gray-800 rounded shadow-lg overflow-hidden">
         <div className="p-8">
-          <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Contact.</h2>
-          <p className="text-left text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-light mb-8">REACH OUT TO ME</p>
-
+          <div className="flex justify-between ">
+            <div>
+              <h2 className="text-4xl font-extrabold text-left pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Contact.</h2>
+              <p className="text-left text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-light mb-8">REACH OUT TO ME</p>
+            </div>
+            <div className=''>
+              <Link to="/">
+                <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+              </Link>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} ref={formRef} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
@@ -134,7 +144,7 @@ const ContactPage = () => {
                 <input
                   type="text"
                   name="name"
-                  value={form.name} 
+                  value={form.name}
                   onChange={handleChange}
                   placeholder="Enter your Name"
                   className="w-full px-4 py-2 border border-gray-600 rounded focus:ring-blue-500 focus:border-blue-500 bg-gray-700 text-white pl-10"
@@ -160,7 +170,7 @@ const ContactPage = () => {
                 />
 
               </div>
-            </div>            
+            </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Your message</label>
