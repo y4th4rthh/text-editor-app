@@ -55,6 +55,7 @@ const Navbar = () => {
 
 const NavLinks = ({ isAuthenticated, logout, mobile = false }) => {
   const linkClass = `block ${mobile ? 'py-2' : ''} hover:text-blue-400 transition`;
+  const linklogoutClass = `block ${mobile ? 'py-2' : ''} hover:text-red-400 transition`;
 
   return (
     <>
@@ -66,7 +67,7 @@ const NavLinks = ({ isAuthenticated, logout, mobile = false }) => {
       )}
       <Link to="/contact" className={linkClass}>Contact</Link>
       {isAuthenticated ? (
-        <button onClick={logout} className={linkClass}>Logout</button>
+        <button onClick={logout} className={linklogoutClass}>Logout</button>
       ) : (
         <Link to="/login" className={linkClass}>Login</Link>
       )}
