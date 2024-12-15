@@ -174,8 +174,8 @@ function TextEditor() {
             <div className="text-center py-16">
 
                 <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
-                    Experience the power of multi-language compilation right in your browser.
-                    Write, test, and run code seamlessly with our advanced online compiler.
+                    Experience the power of multi-language tutorials.
+                    Learn and executes the code snippets seamlessly with our advanced online compiler.
                 </p>
                 <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">
                     <Link
