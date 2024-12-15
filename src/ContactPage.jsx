@@ -133,7 +133,8 @@ const ContactPage = () => {
             </div>
             <div className=''>
               <Link to="/">
-                <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+                 <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+
               </Link>
             </div>
           </div>

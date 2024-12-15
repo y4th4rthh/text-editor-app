@@ -172,9 +172,9 @@ function TextEditor() {
             </div>
 
             <div className="text-center py-16">
-
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to elevate your coding experience?</h2>
                 <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
-                    Experience the power of multi-language tutorials.
+                    Try experiencing the power of multi-language tutorials.
                     Learn and executes the code snippets seamlessly with our advanced online compiler.
                 </p>
                 <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">

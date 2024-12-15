@@ -263,7 +263,8 @@ app.listen(3000, () => {
                     </div>
                     <div className=''>
                         <Link to="/main">
-                            <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+                             <IoMdClose className='font-semibold text-3xl cursor-pointer hover:scale-125 transition-transform ease-linear text-red-500' />
+
                         </Link>
                     </div>
                 </div>
