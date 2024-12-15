@@ -167,7 +167,7 @@ const HomePage = () => (
                 <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">
                     <Link
                         to="/editor"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded transition duration-300 text-lg"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
                     >
                         Compile Wizard
                     </Link>
