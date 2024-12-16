@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, Palette, Search } from 'lucide-react';
+import { Copy, Check, Code, BookOpen, Search } from 'lucide-react';
 
 const ColorPicker = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -173,7 +173,7 @@ const ColorPicker = () => {
               to="/editor"
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 flex items-center gap-2"
             >
-              <Palette size={20} />
+              <Code size={20} />
               Compile Wizard
             </Link>
 
@@ -181,7 +181,7 @@ const ColorPicker = () => {
               to="/main"
               className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 flex items-center gap-2"
             >
-              <Palette size={20} />
+              <BookOpen size={20} />
               Tutorial Wizard
             </Link>
           </div>
