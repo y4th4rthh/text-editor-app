@@ -168,7 +168,7 @@ const HomePage = () => (
                 <div className="flex flex-wrap gap-4 justify-center">
                     <Link
                         to="/editor"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg flex items-center gap-2"
                     >
                         <Code size={20} />
                         Compile Wizard
@@ -176,7 +176,7 @@ const HomePage = () => (
 
                     <Link
                         to="/color-picker"
-                        className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
+                        className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg flex items-center gap-2"
                     >
                         <Palette size={20} />
                         Color Wizard
