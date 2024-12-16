@@ -118,7 +118,7 @@ const ColorPicker = () => {
         </div>
       </div>
       <div className="text-center py-16">
-      <h2 className="text-3xl font-bold mb-4">Ready to elevate your coding experience?</h2>
+      <h2 className="text-3xl font-bold mb-4 text-white">Ready to elevate your coding experience?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
           Try experiencing the power of multi-language compilation right in your browser.
           Write, test, and run code seamlessly with our advanced online compiler.
