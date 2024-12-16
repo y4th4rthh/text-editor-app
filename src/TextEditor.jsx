@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MonacoEditor from '@monaco-editor/react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import {  Palette, BookOpen } from 'lucide-react';
 
 function TextEditor() {
     const [code, setCode] = useState('// Write your code here');
@@ -182,6 +183,7 @@ function TextEditor() {
                         to="/main"
                          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
                     >
+                        <BookOpen size={20} />
                         Tutorial Wizard
                     </Link>
 
@@ -189,6 +191,7 @@ function TextEditor() {
                         to="/color-picker"
                         className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
                     >
+                        <Palette size={20} />
                         Color Wizard
                     </Link>
                 </div>
