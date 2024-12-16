@@ -9,6 +9,10 @@ function TextEditor() {
     const [language, setLanguage] = useState('python');
     const [output, setOutput] = useState('');
     const [preview, setPreview] = useState('');
+    const [codeloading, setCodeLoading] = useState(false);
+    const [saveloading, setSaveLoading] = useState(false);
+    const [clearloading, setClearLoading] = useState(false);
+    const [copyloading, setCopyLoading] = useState(false);
 
     useEffect(() => {
         if (language === 'html' || language === 'css') {
@@ -127,25 +131,25 @@ function TextEditor() {
                                     onClick={runCode}
                                     className="bg-blue-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
                                 >
-                                    Run Code
+                                   {codeloading ? "Running..." : "Run Code"} 
                                 </button>
                                 <button
                                     onClick={saveFile}
                                     className="bg-green-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-green-700 transition duration-300 ease-in-out"
                                 >
-                                    Save File
+                                     {saveloading ? "Saving..." : "Save File"}
                                 </button>
                                 <button
                                     onClick={clearCode}
                                     className="bg-red-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-red-700 transition duration-300 ease-in-out"
                                 >
-                                    Clear Code
+                                    {clearloading ? "Clearing..." : "Clear Code"}
                                 </button>
                                 <button
                                     onClick={copyCode}
                                     className="bg-yellow-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-yellow-700 transition duration-300 ease-in-out"
                                 >
-                                    Copy Code
+                                     {copyloading ? "Copying..." : "Copy Code"} Copy Code
                                 </button>
 
                             </div>
