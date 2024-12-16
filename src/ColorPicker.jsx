@@ -74,7 +74,7 @@ const ColorPicker = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               </div>
             </div>
-            <div>
+            <div className="flex flex-col justify-center">
               <label className="block text-sm font-medium text-gray-300 mb-2">Color Mode:</label>
               <div className="flex gap-2">
                 {['all', 'light', 'dark', 'bright', 'neutral'].map((mode) => (
