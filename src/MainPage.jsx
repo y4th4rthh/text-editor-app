@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Code,Palette } from 'lucide-react';
 
 const FeatureCard = ({ title, description }) => (
     <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -169,6 +170,7 @@ const HomePage = () => (
                         to="/editor"
                         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
                     >
+                        <Code size={20} />
                         Compile Wizard
                     </Link>
 
@@ -176,6 +178,7 @@ const HomePage = () => (
                         to="/color-picker"
                         className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
                     >
+                        <Palette size={20} />
                         Color Wizard
                     </Link>
                 </div>
