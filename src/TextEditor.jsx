@@ -178,7 +178,7 @@ function TextEditor() {
                     Try experiencing the power of multi-language tutorials.
                     Learn and executes the code snippets seamlessly with our advanced online compiler.
                 </p>
-                <div className="flex flex-wrap  sm:gap-4 gap-4 justify-center">
+                <div className="flex flex-wrap gap-4 justify-center">
                     <Link
                         to="/main"
                          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 text-sm sm:py-3 sm:px-8 rounded transition duration-300 sm:text-lg "
