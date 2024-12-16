@@ -107,7 +107,7 @@ const ColorPicker = () => {
             </div>
             <div className="flex flex-col justify-center">
               <label className="block text-sm font-medium text-gray-300 mb-2">Color Mode:</label>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {['all', 'light', 'dark', 'bright', 'neutral'].map((mode) => (
                   <button
                     key={mode}
