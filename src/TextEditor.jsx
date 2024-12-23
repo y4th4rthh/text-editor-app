@@ -95,7 +95,7 @@ function TextEditor() {
         <div className='bg-gradient-to-br from-gray-900 to-gray-800'>
             <div className='w-full min-h-screen  flex justify-center items-center p-6'>
                 <div className="w-full max-w-6xl bg-gray-800 shadow-2xl rounded-xl p-8 space-y-8">
-                    <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
+                    <h1 className="sm:text-5xl text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
                         Compile Wizard
                     </h1>
 
