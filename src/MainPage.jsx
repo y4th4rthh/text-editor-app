@@ -71,7 +71,7 @@ const HomePage = () => (
 
             <div className="max-w-6xl mx-auto mb-12">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl font-extrabold">
+                    <h1 className="sm:text-2xl text-3xl font-extrabold">
                         Explore our wide range of tutorials
                     </h1>
                     <p className="mt-4 text-xl text-gray-300">
