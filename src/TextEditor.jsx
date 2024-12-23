@@ -149,7 +149,7 @@ function TextEditor() {
                                     onClick={copyCode}
                                     className="bg-yellow-600 text-white font-semibold px-5 py-3 rounded-md shadow-md hover:bg-yellow-700 transition duration-300 ease-in-out"
                                 >
-                                     {copyloading ? "Copying..." : "Copy Code"} Copy Code
+                                     {copyloading ? "Copying..." : "Copy Code"} 
                                 </button>
 
                             </div>
