@@ -87,7 +87,7 @@ const ColorPicker = () => {
     <div className='bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen'>
       <div className='container mx-auto px-4 py-12'>
         <div className="bg-gray-800 shadow-2xl rounded-xl p-8 space-y-8">
-          <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
+          <h1 className="sm:text-5xl text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
             Color Wizard
           </h1>
 
