@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className=" text-xl font-bold">  <p className=' flex gap-4 items-center'> <img  className='hidden sm:block w-6 h-6'  src="https://img.icons8.com/?size=100&id=60985&format=png&color=000000" />  Code Wizard </p>
+        <Link to="/" className=" text-xl font-bold">  <p className=' flex gap-4 items-center'> <img  className='hidden sm:block w-6 h-6'  src="https://img.icons8.com/?size=100&id=60985&format=png&color=FFFFFF" />  Code Wizard </p>
         </Link>
         
         {/* Mobile menu button */}
